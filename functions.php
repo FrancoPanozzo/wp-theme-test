@@ -14,7 +14,8 @@ add_action('init', 'add_all_menus');
 
 // Add dynamic title tag support in the content manager UI from WP CMS
 function add_all_theme_supports(){
-add_theme_support('title-tag');
+    add_theme_support('title-tag');
+    add_theme_support('custom-logo');
 }
 
 add_action('after_setup_theme', 'add_all_theme_supports');

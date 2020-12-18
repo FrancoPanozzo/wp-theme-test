@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog Site Template">
     <meta name="author" content="https://youtube.com/FollowAndrew">    
+
+	<!-- 
+	Favicon icon commented out because is now handled by wp cms
     <link rel="shortcut icon" href=<?php echo get_template_directory_uri() . '/assets/images/logo.png'?>> 
-    
+	 -->
+
 	<?php
 		wp_head();
 	?>
@@ -27,7 +31,17 @@
 			</button>
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
-				<img class="mb-3 mx-auto logo" src=<?php echo get_template_directory_uri() . '/assets/images/logo.png'?> alt="logo" >			
+
+				<?php
+					if(function_exists('the_custom_logo')){
+					
+
+						$logo_id = get_theme_mod('custom_logo');
+						$logo_src = wp_get_attachment_image_src($logo_id)[0];
+					}
+				?>
+
+				<img class="mb-3 mx-auto logo" src="<?php echo $logo_src ?>" alt="logo" >			
 				
 
 				<?php
