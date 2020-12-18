@@ -1,5 +1,17 @@
 <?php
 
+// Add menus dynamically
+function add_all_menus(){
+    $menu_locations = array(
+        'primary' => 'Desktop primary left sidebar',
+        'footer' => 'footer'
+    );
+
+    register_nav_menus($menu_locations);
+}
+
+add_action('init', 'add_all_menus');
+
 // Add dynamic title tag support in the content manager UI from WP CMS
 function add_all_theme_supports(){
 add_theme_support('title-tag');
